@@ -4,6 +4,7 @@ const Fibonacci = () => {
   return (
     <>
       <input type="text" />
+      <button>Calculate</button>
     </>
   );
 };
