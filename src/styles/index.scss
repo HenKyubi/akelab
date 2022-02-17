@@ -1,0 +1,25 @@
+@import "./loader.scss";
+@import "./App.scss";
+@import "./movie.scss";
+@import "./navBar.scss";
+
+@font-face {
+  font-family: "Futura LT";
+  src: "../fonts/FuturaLT.ttf";
+  font-style: normal;
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

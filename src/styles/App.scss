@@ -1,14 +1,5 @@
-@import "./movie.scss";
-
 .dashboard-movies {
   overflow-y: scroll;
   overflow-x: hidden;
   height: 90vh;
-}
-
-@font-face {
-  font-family: "Futura LT";
-  src: "../fonts/FuturaLT.ttf";
-  font-style: normal;
-  font-weight: normal;
 }

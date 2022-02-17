@@ -18,16 +18,55 @@
   // -webkit-line-clamp: 9;
   // -webkit-box-orient: vertical;
 }
+.star-full {
+  background-image: url("../assets/Star-full.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+}
+
+.star-void {
+  background-image: url("../assets/Star-void.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+}
+@media (min-width: 767px) {
+  .star-full,
+  .star-void {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+}
 
 h2 {
   font-family: "Futura LT";
   color: #3f3f3f;
   font-size: 14px !important;
-  font-weight: 800;
-  line-height: 19.47px;
+  font-weight: 800 !important;
+  line-height: 19.47px !important;
+}
+
+h6 {
+  font-family: "Futura LT";
+  color: #3f3f3f;
+  font-size: 12px !important;
+  font-weight: 800 !important;
 }
 
 p {
+  font-family: "Futura LT";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16.67px;
+  color: #6d6e70;
+}
+
+span {
   font-family: "Futura LT";
   font-size: 12px;
   font-weight: 400;
