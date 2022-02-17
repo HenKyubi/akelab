@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Loader from "./components/loader";
-import Fibonacci from "./components/fibonaci";
+// import Fibonacci from "./components/fibonaci";
 import api from "./api";
 import Movie from "./components/movie";
 import NavBar from "./components/navBar";
