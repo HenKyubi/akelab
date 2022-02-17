@@ -25,8 +25,8 @@ const NavBar = () => {
         </div>
         <Gender />
         <input type="text" />
-        <a href="">filtro</a>
-        <a href="">ordenar</a>
+        <div>filtro</div>
+        <div>ordenar</div>
         {/* <SearchBar /> */}
       </div>
     </nav>
