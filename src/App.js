@@ -31,6 +31,8 @@ const App = () => {
               imgURL={`${data.images_url}${dataMovie?.poster_path}`}
               imgAlt={`${dataMovie?.title} poster`}
               description={dataMovie?.overview}
+              vote_average={dataMovie?.vote_average}
+              release_date={dataMovie?.release_date}
               key={key}
             />
           ))}
