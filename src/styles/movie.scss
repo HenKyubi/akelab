@@ -1,0 +1,36 @@
+.movie-card {
+  border: solid;
+  border-width: 1.5px;
+  border-radius: 16px;
+  border-color: #4f4f4f;
+  box-sizing: border-box;
+  box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.15);
+  padding-top: 18px;
+  padding-bottom: 19px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.movie-description {
+  max-height: 65%;
+  // overflow-y: visible;
+  // display: -webkit-box;
+  // -webkit-line-clamp: 9;
+  // -webkit-box-orient: vertical;
+}
+
+h2 {
+  font-family: "Futura LT";
+  color: #3f3f3f;
+  font-size: 14px !important;
+  font-weight: 800;
+  line-height: 19.47px;
+}
+
+p {
+  font-family: "Futura LT";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16.67px;
+  color: #6d6e70;
+}

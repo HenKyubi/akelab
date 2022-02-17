@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Fibonacci from "./components/fibonaci";
 import api from "./api";
+import Movie from "./components/movie";
+import "./styles/App.scss";
 
 const App = () => {
   const [data, setData] = useState({});
@@ -8,7 +10,7 @@ const App = () => {
   const getListMovies = async () => {
     const response = await api.getMovies();
     if (response.ok) {
-      console.log(response);
+      console.log(response.data);
       setData(response.data);
     } else {
       alert(response.message);
@@ -20,12 +22,25 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <Fibonacci />
+    <div className="dashboard-movies">
+      <div className="row">
+        {data?.results?.length > 0 &&
+          data?.results?.map((dataMovie, key) => (
+            <Movie
+              title={dataMovie?.title}
+              imgURL={`${data.images_url}${dataMovie?.poster_path}`}
+              imgAlt={`${dataMovie?.title} poster`}
+              description={dataMovie?.overview}
+              key={key}
+            />
+          ))}
+      </div>
+      {/* <Fibonacci />
       <div>Fibonaci</div>
       <div>AKELAB</div>
       <div>Peliculas</div>
-      <div>{JSON.stringify(data)}</div>
+      <div>{JSON.stringify(data)}</div> */}
+      {/* <Movie /> */}
     </div>
   );
 };
