@@ -2,18 +2,13 @@ import React, { useState } from "react";
 import { components } from "react-select";
 import { default as ReactSelect } from "react-select";
 
-const colourOptions = [
-  { value: "ocean1", label: "Ocean" },
-  { value: "blue", label: "Blue" },
-  { value: "purple", label: "Purple" },
-  { value: "red", label: "Red" },
-  { value: "orange", label: "Orange" },
-  { value: "yellow", label: "Yellow" },
-  { value: "green", label: "Green" },
-  { value: "forest", label: "Forest" },
-  { value: "slate", label: "Slate" },
-  { value: "silver", label: "Silver" },
-];
+const converToObject = (data) => {
+  let array = [];
+  for (let i = 0; i < data?.data?.length; i++) {
+    array.push({ value: `"${data.data[i]}${i}"`, label: `"${data.data[i]}"` });
+  }
+  return array;
+};
 
 const Option = (props) => {
   return (
@@ -30,20 +25,21 @@ const Option = (props) => {
   );
 };
 
-const Gender = () => {
+const Gender = ({ data }) => {
+  // console.log(data);}
   const [optionSelected, setOptionSelected] = useState(null);
 
   const handleChange = (selected) => setOptionSelected(selected);
 
   return (
     <span
-      className="d-inline-block"
+      className="d-inline-block filter-gender"
       data-toggle="popover"
       data-trigger="focus"
-      data-content="Please selecet account(s)"
+      data-content="Please selecet gender(s)"
     >
       <ReactSelect
-        options={colourOptions}
+        options={converToObject({ data })}
         isMulti
         closeMenuOnSelect={false}
         hideSelectedOptions={false}

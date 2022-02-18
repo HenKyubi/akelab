@@ -26,11 +26,13 @@ const SearchBar = ({ data, text = "" }) => {
 
   return (
     <div id="searchBar" className="px-2">
-      <input
-        className="input-search-bar"
-        type="text"
-        onChange={(e) => () => search({ data }, e.target.value)}
-      />
+      <div className="input-search-bar-icon ps-1 pe-4">
+        <input
+          className="input-search-bar "
+          type="text"
+          onChange={(e) => () => search({ data }, e.target.value)}
+        />
+      </div>
     </div>
   );
 

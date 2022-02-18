@@ -6,6 +6,7 @@ import animationData from "../assets/lotties/movie-cut.json";
 import SearchBar from "./searchbar";
 import Gender from "./gender";
 import ToggleDarkMode from "./toggle-dark-mode";
+import OrderBy from "./order-by";
 
 const defaultOptions = {
   loop: true,
@@ -26,9 +27,9 @@ const NavBar = ({ data }) => {
           </div>
           <h1>Peliculas</h1>
         </div>
-        <SearchBar data={data} text="" />
-        <Gender data="" />
-        <div>ordenar</div>
+        <SearchBar data={data.results.map((item) => item.title)} text="" />
+        <Gender data={data?.genres.map((item) => item.name)} />
+        <OrderBy />
         <ToggleDarkMode />
       </div>
     </nav>

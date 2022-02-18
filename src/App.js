@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Loader from "./components/loader";
-// import Fibonacci from "./components/fibonaci";
+import Fibonacci from "./components/fibonacci";
 import api from "./api";
 import Movie from "./components/movie";
 import NavBar from "./components/navBar";
@@ -44,13 +44,14 @@ const App = () => {
 
   return (
     <div>
+      {/* <Fibonacci /> */}
       {loading && data !== undefined ? (
         <Loader />
       ) : (
         <div id="movies">
-          {!data || <NavBar data={data.results.map((item) => item.title)} />}
+          {!data || <NavBar data={data} />}
           <div className="px-3">
-            <div className="dashboard-movies pe-3">
+            <div className="dashboard-movies ps-1 pe-3">
               <div>
                 <div className="row">
                   {data?.results?.length > 0 &&

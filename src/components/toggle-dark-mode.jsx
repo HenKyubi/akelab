@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import useDarkMode from "use-dark-mode"; // Don't forget to import the NPM package use-dark-mode
-
-// import "./styles.scss";
+import useDarkMode from "use-dark-mode";
 
 const ToggleDarkMode = () => {
   const { value, toggle } = useDarkMode(false);
@@ -18,6 +14,3 @@ const ToggleDarkMode = () => {
 };
 
 export default ToggleDarkMode;
-
-// const rootElement = document.getElementById("root");
-// ReactDOM.render(<App />, rootElement);
