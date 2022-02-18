@@ -7,6 +7,7 @@ import NavBar from "./components/navBar";
 
 const App = () => {
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const getListMovies = async () => {
     const response = await api.getMovies();
@@ -16,6 +17,7 @@ const App = () => {
       alert(response.message);
     }
   };
+
   const searchGender = (gendersArray = [], genderToFound = []) => {
     let genderNames = [];
     for (let i = 0; i < genderToFound.length; i++) {
@@ -27,7 +29,6 @@ const App = () => {
     return genderNames;
   };
 
-  const [loading, setLoading] = React.useState(true);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -37,34 +38,37 @@ const App = () => {
 
   return (
     <div>
-      {loading ? <Loader /> : null}
-      <div id="movies">
-        <NavBar />
-        <div className="px-3">
-          <div className="dashboard-movies pe-3">
-            <div>
-              <div className="row">
-                {data?.results?.length > 0 &&
-                  data?.results?.map((dataMovie, key) => (
-                    <Movie
-                      title={dataMovie?.title}
-                      imgURL={`${data.images_url}${dataMovie?.poster_path}`}
-                      imgAlt={`${dataMovie?.title} poster`}
-                      description={dataMovie?.overview}
-                      vote_average={dataMovie?.vote_average}
-                      gender={searchGender(
-                        data?.genres,
-                        data?.results[key]?.genre_ids
-                      )}
-                      release_date={dataMovie?.release_date}
-                      key={key}
-                    />
-                  ))}
+      {loading && data !== undefined ? (
+        <Loader />
+      ) : (
+        <div id="movies">
+          {!data || <NavBar data={data.results.map((item) => item.title)} />}
+          <div className="px-3">
+            <div className="dashboard-movies pe-3">
+              <div>
+                <div className="row">
+                  {data?.results?.length > 0 &&
+                    data?.results?.map((dataMovie, key) => (
+                      <Movie
+                        title={dataMovie?.title}
+                        imgURL={`${data.images_url}${dataMovie?.poster_path}`}
+                        imgAlt={`${dataMovie?.title} poster`}
+                        description={dataMovie?.overview}
+                        vote_average={dataMovie?.vote_average}
+                        gender={searchGender(
+                          data?.genres,
+                          data?.results[key]?.genre_ids
+                        )}
+                        release_date={dataMovie?.release_date}
+                        key={key}
+                      />
+                    ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

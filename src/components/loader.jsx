@@ -5,7 +5,7 @@ import Lottie from "react-lottie";
 import animationData from "../assets/lotties/movies-title-animation.json";
 
 const defaultOptions = {
-  loop: true,
+  loop: false,
   autoplay: true,
   animationData: animationData,
   rendererSettings: {

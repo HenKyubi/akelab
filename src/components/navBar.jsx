@@ -1,8 +1,11 @@
 import React from "react";
 import Lottie from "react-lottie";
 import animationData from "../assets/lotties/movie-cut.json";
-// import SearchBar from "./searchbar";
+
+//Components
+import SearchBar from "./searchbar";
 import Gender from "./gender";
+import ToggleDarkMode from "./toggle-dark-mode";
 
 const defaultOptions = {
   loop: true,
@@ -13,7 +16,7 @@ const defaultOptions = {
   },
 };
 
-const NavBar = () => {
+const NavBar = ({ data }) => {
   return (
     <nav id="navBar" className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -23,11 +26,10 @@ const NavBar = () => {
           </div>
           <h1>Peliculas</h1>
         </div>
-        <Gender />
-        <input type="text" />
-        <div>filtro</div>
+        <SearchBar data={data} text="" />
+        <Gender data="" />
         <div>ordenar</div>
-        {/* <SearchBar /> */}
+        <ToggleDarkMode />
       </div>
     </nav>
   );
