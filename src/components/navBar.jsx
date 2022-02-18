@@ -27,10 +27,20 @@ const NavBar = ({ data }) => {
           </div>
           <h1>Peliculas</h1>
         </div>
-        <SearchBar />
-        <Gender data={data?.genres.map((item) => item.name)} />
-        <OrderBy />
-        <ToggleDarkMode />
+        <div className="d-flex aling-items-center justify-content-end">
+          <div className="d-flex aling-items-center px-2">
+            <SearchBar />
+          </div>
+          <div className="d-flex aling-items-center px-2">
+            <Gender data={data?.genres.map((item) => item.name)} />
+          </div>
+          <div className="d-flex aling-items-center px-2">
+            <OrderBy />
+          </div>
+          <div className="d-flex aling-items-center px-2">
+            <ToggleDarkMode />
+          </div>
+        </div>
       </div>
     </nav>
   );

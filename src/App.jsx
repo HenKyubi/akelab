@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Loader from "./components/loader";
-import Fibonacci from "./components/fibonacci";
+// import Fibonacci from "./components/fibonacci";
 import api from "./api";
 import Movie from "./components/movie";
 import NavBar from "./components/navBar";
@@ -10,6 +10,7 @@ const App = () => {
   const [data, setData] = useState({});
   const [initialData, setInitialData] = useState({});
   const [loading, setLoading] = useState(true);
+  const { optionSelected } = useContext(AppContext);
 
   const getListMovies = async () => {
     const response = await api.getMovies();
@@ -21,15 +22,9 @@ const App = () => {
     }
   };
 
-  const searchGender = (gendersArray = [], genderToFound = []) => {
-    let genderNames = [];
-    for (let i = 0; i < genderToFound.length; i++) {
-      const genderName = gendersArray.find(
-        (gender) => gender?.id === genderToFound[i]
-      );
-      genderNames.push(genderName?.name);
-    }
-    return genderNames;
+  const searchGender = () => {
+    console.log("optionSelected", optionSelected);
+    console.log("data", data);
   };
 
   const search = (text) => {
@@ -63,6 +58,7 @@ const App = () => {
     <AppContext.Provider
       value={{
         setSearch: search,
+        setSearchGender: searchGender,
       }}
     >
       {/* <Fibonacci /> */}
