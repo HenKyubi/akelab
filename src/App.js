@@ -29,6 +29,12 @@ const App = () => {
     return genderNames;
   };
 
+  const formatText = (str) => {
+    return str.length < 140
+      ? str
+      : `${str.substr(0, str.substr(0, 130).lastIndexOf(" "))}...`;
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -53,7 +59,7 @@ const App = () => {
                         title={dataMovie?.title}
                         imgURL={`${data.images_url}${dataMovie?.poster_path}`}
                         imgAlt={`${dataMovie?.title} poster`}
-                        description={dataMovie?.overview}
+                        description={formatText(dataMovie?.overview)}
                         vote_average={dataMovie?.vote_average}
                         gender={searchGender(
                           data?.genres,

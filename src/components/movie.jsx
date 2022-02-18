@@ -25,7 +25,7 @@ const Movie = ({
     return stars;
   };
   return (
-    <div className="col-12 col-md-4">
+    <div className="col-12 col-md-4 py-2">
       <div className="movie-card">
         <h2 className="">{`${title} (${longDateToYear(release_date)})`}</h2>
         <div className="row">
@@ -48,8 +48,8 @@ const Movie = ({
                   <span key={idx} className={`mx-1 ${start}`}></span>
                 ))}
               </div>
-              <div className="d-flex">
-                <h6 className="pe-1">Genero:</h6>
+              <div className="d-flex flex-wrap">
+                <h6 className="pe-1 m-0">Genero:</h6>
                 {gender.map((gen, idx) =>
                   idx > 0 ? (
                     <span key={idx}>, {gen}</span>

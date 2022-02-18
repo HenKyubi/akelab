@@ -8,7 +8,7 @@ const ToggleDarkMode = () => {
   const { value, toggle } = useDarkMode(false);
 
   return (
-    <div className="App">
+    <div>
       <label className="switch">
         <input type="checkbox" onChange={toggle} />
         <span className="slider round"></span>

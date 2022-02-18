@@ -11,15 +11,16 @@
   font-style: normal;
   font-weight: normal;
 }
+
 body.light-mode {
-  background-color: #fff;
-  color: #333;
+  background-color: #fafafa;
+  color: #6d6e70;
   transition: background-color 0.3s ease;
 }
 
 body.dark-mode {
-  background-color: #1a1919;
-  color: #999;
+  background-color: #333333;
+  color: #e30052;
 }
 
 body {
