@@ -4,8 +4,7 @@ import "./styles/index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-//Bootstrap
-// import * as bootstrap from "bootstrap";
+// Bootstrap
 import "bootstrap/dist/js/bootstrap.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 

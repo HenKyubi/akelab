@@ -27,7 +27,7 @@ const NavBar = ({ data }) => {
           </div>
           <h1>Peliculas</h1>
         </div>
-        <SearchBar data={data.results.map((item) => item.title)} text="" />
+        <SearchBar />
         <Gender data={data?.genres.map((item) => item.name)} />
         <OrderBy />
         <ToggleDarkMode />

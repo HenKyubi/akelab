@@ -4,15 +4,18 @@ import Fibonacci from "./components/fibonacci";
 import api from "./api";
 import Movie from "./components/movie";
 import NavBar from "./components/navBar";
+import AppContext from "./context/app-context";
 
 const App = () => {
   const [data, setData] = useState({});
+  const [initialData, setInitialData] = useState({});
   const [loading, setLoading] = useState(true);
 
   const getListMovies = async () => {
     const response = await api.getMovies();
     if (response.ok) {
       setData(response.data);
+      setInitialData(response.data);
     } else {
       alert(response.message);
     }
@@ -29,6 +32,20 @@ const App = () => {
     return genderNames;
   };
 
+  const search = (text) => {
+    if (text) {
+      const newData = data.results.filter((item) =>
+        item.title.toLowerCase().includes(text.toLowerCase())
+      );
+      setData({
+        ...data,
+        results: newData,
+      });
+    } else {
+      setData(initialData);
+    }
+  };
+
   const formatText = (str) => {
     return str.length < 140
       ? str
@@ -43,7 +60,11 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <AppContext.Provider
+      value={{
+        setSearch: search,
+      }}
+    >
       {/* <Fibonacci /> */}
       {loading && data !== undefined ? (
         <Loader />
@@ -76,7 +97,7 @@ const App = () => {
           </div>
         </div>
       )}
-    </div>
+    </AppContext.Provider>
   );
 };
 
