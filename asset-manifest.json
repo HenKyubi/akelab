@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/akelab/static/css/main.990c6ba9.css",
-    "main.js": "/akelab/static/js/main.10c9f2a8.js",
+    "main.css": "/akelab/static/css/main.e2d9741e.css",
+    "main.js": "/akelab/static/js/main.324b7e23.js",
     "static/js/787.69aa7ab4.chunk.js": "/akelab/static/js/787.69aa7ab4.chunk.js",
+    "static/media/ACFilmstrip.otf": "/akelab/static/media/ACFilmstrip.abf727648bc1967d88be.otf",
     "index.html": "/akelab/index.html",
-    "main.990c6ba9.css.map": "/akelab/static/css/main.990c6ba9.css.map",
-    "main.10c9f2a8.js.map": "/akelab/static/js/main.10c9f2a8.js.map",
+    "main.e2d9741e.css.map": "/akelab/static/css/main.e2d9741e.css.map",
+    "main.324b7e23.js.map": "/akelab/static/js/main.324b7e23.js.map",
     "787.69aa7ab4.chunk.js.map": "/akelab/static/js/787.69aa7ab4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.990c6ba9.css",
-    "static/js/main.10c9f2a8.js"
+    "static/css/main.e2d9741e.css",
+    "static/js/main.324b7e23.js"
   ]
 }
