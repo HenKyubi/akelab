@@ -23,8 +23,8 @@
 //variables
 $primary-color: #fffff3;
 $secondary-color: #ff4365;
+$tertiary-color: #fcff00;
 
-// $tertiary-color: #;
 $backgroung-color: #030301;
 
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
@@ -75,7 +75,7 @@ body.dark-mode {
     }
   }
   .movie-card:hover {
-    border-color: $primary-color;
+    border-color: $tertiary-color;
     box-shadow: 0 0 1px 0 rgba(255, 67, 101, 0.31),
       0 4px 6px 0 rgba(255, 67, 101, 0.31);
     -webkit-box-shadow: 0 0 1px 0 rgba(255, 67, 101, 0.31),

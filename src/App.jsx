@@ -44,6 +44,8 @@ const App = () => {
       items && result.push(item);
     }
     if (result.length > 0) {
+      console.log("data antes de cambiar ", data);
+      console.log("result antes de cambiar ", result);
       setData({
         ...data,
         results: result,
@@ -51,9 +53,9 @@ const App = () => {
     } else {
       setData(initialData);
     }
-    console.log(genderId);
-    console.log("data", data);
-    console.log("result", result);
+    // console.log(genderId);
+    // console.log("data", data);
+    // console.log("result", result);
     setOptionData(option);
   };
 
@@ -110,7 +112,7 @@ const App = () => {
                         imgAlt={`${dataMovie?.title} poster`}
                         description={formatText(dataMovie?.overview)}
                         vote_average={dataMovie?.vote_average}
-                        gender={getGenders()}
+                        gender={getGenders(data?.genres, dataMovie?.genre_ids)}
                         release_date={dataMovie?.release_date}
                         key={key}
                       />
