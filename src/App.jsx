@@ -10,7 +10,7 @@ const App = () => {
   const [data, setData] = useState({});
   const [initialData, setInitialData] = useState({});
   const [loading, setLoading] = useState(true);
-  const { optionSelected } = useContext(AppContext);
+  const [optionData, setOptionData] = useState(null);
 
   const getListMovies = async () => {
     const response = await api.getMovies();
@@ -22,9 +22,39 @@ const App = () => {
     }
   };
 
-  const searchGender = () => {
-    console.log("optionSelected", optionSelected);
+  const getGenders = (gendersArray = [], genderToFound = []) => {
+    let genderNames = [];
+    for (let i = 0; i < genderToFound.length; i++) {
+      const genderName = gendersArray.find(
+        (gender) => gender?.id === genderToFound[i]
+      );
+      genderNames.push(genderName?.name);
+    }
+    return genderNames;
+  };
+
+  const searchGender = (option) => {
+    const genderId = option.map((op) => {
+      return data.genres.filter((item) => item.name === op.label)[0].id;
+    });
+    const result = [];
+    for (let i = 0; i < data.results.length; i++) {
+      const item = data.results[i];
+      const items = item.genre_ids.some((id) => genderId.indexOf(id) !== -1);
+      items && result.push(item);
+    }
+    if (result.length > 0) {
+      setData({
+        ...data,
+        results: result,
+      });
+    } else {
+      setData(initialData);
+    }
+    console.log(genderId);
     console.log("data", data);
+    console.log("result", result);
+    setOptionData(option);
   };
 
   const search = (text) => {
@@ -59,6 +89,7 @@ const App = () => {
       value={{
         setSearch: search,
         setSearchGender: searchGender,
+        optionSelected: optionData,
       }}
     >
       {/* <Fibonacci /> */}
@@ -67,8 +98,8 @@ const App = () => {
       ) : (
         <div id="movies">
           {!data || <NavBar data={data} />}
-          <div className="px-3">
-            <div className="dashboard-movies ps-1 pe-3">
+          <div className="px-3 pe-md-0">
+            <div className="dashboard-movies  py-2 ps-1 pe-3 me-0">
               <div>
                 <div className="row">
                   {data?.results?.length > 0 &&
@@ -79,10 +110,7 @@ const App = () => {
                         imgAlt={`${dataMovie?.title} poster`}
                         description={formatText(dataMovie?.overview)}
                         vote_average={dataMovie?.vote_average}
-                        gender={searchGender(
-                          data?.genres,
-                          data?.results[key]?.genre_ids
-                        )}
+                        gender={getGenders()}
                         release_date={dataMovie?.release_date}
                         key={key}
                       />

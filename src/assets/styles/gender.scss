@@ -9,3 +9,12 @@
   display: flex;
   flex-wrap: wrap;
 }
+@media (max-width: 992px) {
+  #gender-filter {
+    max-width: 100%;
+    span,
+    div {
+      height: 5vh;
+    }
+  }
+}

@@ -7,32 +7,95 @@
 @import "./oder-by.scss";
 @import "./gender.scss";
 
+//fonts
 @font-face {
   font-family: "Futura LT";
   src: "../fonts/FuturaLT.ttf";
   font-style: normal;
   font-weight: normal;
 }
+@font-face {
+  font-family: "ACFilmstrip";
+  font-weight: normal;
+  src: url("../fonts/ACFilmstrip.otf") format("opentype");
+}
+
+//variables
+$primary-color: #fffff3;
+$secondary-color: #ff4365;
+
+// $tertiary-color: #;
+$backgroung-color: #030301;
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
 
 body.light-mode {
+  font-family: "Futura LT";
   background-color: #fafafa;
   color: #6d6e70;
   transition: background-color 0.3s ease;
 }
 
 body.dark-mode {
-  background-color: #333333;
-  color: #e30052;
+  font-family: "Roboto";
+  background-color: $backgroung-color;
+  color: $primary-color;
+
+  p {
+    color: $secondary-color;
+  }
+
+  #navBar {
+    background-color: $primary-color !important;
+    p {
+      color: $backgroung-color;
+    }
+    border-bottom: solid 1px #4f4f4f;
+  }
+
+  #searchBar {
+    box-shadow: 0 0 1px 0 rgba(255, 67, 101, 0.31),
+      0 4px 6px 0 rgba(255, 67, 101, 0.31);
+    -webkit-box-shadow: 0 0 1px 0 rgba(255, 67, 101, 0.31),
+      0 4px 6px 0 rgba(255, 67, 101, 0.31);
+    -moz-box-shadow: 0 0 1px 0 rgba(255, 67, 101, 0.31),
+      0 4px 6px 0 rgba(255, 67, 101, 0.31);
+  }
+
+  .movie-card {
+    border-color: $primary-color;
+    box-shadow: 0 0 1px 0 rgb(255 255 243 / 50%),
+      0 4px 6px 0 rgb(255 255 243 / 50%);
+    -webkit-box-shadow: 0 0 1px 0 rgb(255 255 243 / 50%),
+      0 4px 6px 0 rgb(255 255 243 / 50%);
+    -moz-box-shadow: 0 0 1px 0 rgb(255 255 243 / 50%),
+      0 4px 6px 0 rgb(255 255 243 / 50%);
+    .img-fluid {
+      border-radius: 8px;
+    }
+  }
+  .movie-card:hover {
+    border-color: $primary-color;
+    box-shadow: 0 0 1px 0 rgba(255, 67, 101, 0.31),
+      0 4px 6px 0 rgba(255, 67, 101, 0.31);
+    -webkit-box-shadow: 0 0 1px 0 rgba(255, 67, 101, 0.31),
+      0 4px 6px 0 rgba(255, 67, 101, 0.31);
+    -moz-box-shadow: 0 0 1px 0 rgba(255, 67, 101, 0.31),
+      0 4px 6px 0 rgba(255, 67, 101, 0.31);
+  }
+
   h1 {
+    font-family: "ACFilmstrip";
+    padding-bottom: 20px !important;
     color: #333333;
   }
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Futura LT", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

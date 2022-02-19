@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { default as ReactSelect } from "react-select";
 import GenderOption from "./gender-option";
 import AppContext from "../context/app-context";
@@ -23,7 +23,7 @@ const Gender = ({ data }) => {
         closeMenuOnSelect={false}
         hideSelectedOptions={false}
         components={<GenderOption />}
-        onChange={(item) => setSearchGender(item)}
+        onChange={setSearchGender}
         allowSelectAll={true}
         value={optionSelected}
       />
