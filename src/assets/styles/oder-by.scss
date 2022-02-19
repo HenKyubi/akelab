@@ -1,7 +1,43 @@
 #order-by {
-  background-image: url("../images/Arrow-Icon.png");
-  background-repeat: no-repeat;
-  background-position: right;
-  border: none;
-  border-radius: 12px;
+  img {
+    height: 19.2px;
+    width: 8px;
+  }
+  ul {
+    background-color: #efefef;
+  }
+}
+#navbarDropdown::after {
+  content: none;
+}
+
+#order-by #navbarDropdown.show {
+  img {
+    transform: rotate(90deg) !important;
+  }
+}
+
+.dropdown-menu.show {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  span {
+    color: #3f3f3f;
+    font-size: 13px;
+    font-weight: 800;
+  }
+  li {
+    font-size: 16;
+    color: #6d6e70;
+  }
+}
+
+@media (max-width: 992px) {
+  #order-by #navbarDropdown {
+    flex-direction: row;
+  }
+  ul {
+    left: 0;
+    right: 0;
+  }
 }
