@@ -5,6 +5,7 @@ import api from "./api";
 import Movie from "./components/movie";
 import NavBar from "./components/navBar";
 import AppContext from "./context/app-context";
+import Akelab from "./components/akelab";
 
 const App = () => {
   const [data, setData] = useState({});
@@ -79,51 +80,52 @@ const App = () => {
       : `${str.substr(0, str.substr(0, 130).lastIndexOf(" "))}...`;
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2300);
-    getListMovies();
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 2300);
+  //   getListMovies();
+  // }, []);
 
   return (
-    <AppContext.Provider
-      value={{
-        setSearch: search,
-        setSearchGender: searchGender,
-        optionSelected: optionData,
-      }}
-    >
-      {/* <Fibonacci /> */}
-      {loading && data !== undefined ? (
-        <Loader />
-      ) : (
-        <div id="movies">
-          {!data || <NavBar data={data} />}
-          <div className="px-3 pe-md-0">
-            <div className="dashboard-movies  py-2 ps-1 pe-3 me-0">
-              <div>
-                <div className="row">
-                  {data?.results?.length > 0 &&
-                    data?.results?.map((dataMovie, key) => (
-                      <Movie
-                        title={dataMovie?.title}
-                        imgURL={`${data.images_url}${dataMovie?.poster_path}`}
-                        imgAlt={`${dataMovie?.title} poster`}
-                        description={formatText(dataMovie?.overview)}
-                        vote_average={dataMovie?.vote_average}
-                        gender={getGenders(data?.genres, dataMovie?.genre_ids)}
-                        release_date={dataMovie?.release_date}
-                        key={key}
-                      />
-                    ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </AppContext.Provider>
+    <Akelab />
+    // <AppContext.Provider
+    //   value={{
+    //     setSearch: search,
+    //     setSearchGender: searchGender,
+    //     optionSelected: optionData,
+    //   }}
+    // >
+    //   {/* <Fibonacci /> */}
+    //   {loading && data !== undefined ? (
+    //     <Loader />
+    //   ) : (
+    //     <div id="movies">
+    //       {!data || <NavBar data={data} />}
+    //       <div className="px-3 pe-md-0">
+    //         <div className="dashboard-movies  py-2 ps-1 pe-3 me-0">
+    //           <div>
+    //             <div className="row">
+    //               {data?.results?.length > 0 &&
+    //                 data?.results?.map((dataMovie, key) => (
+    //                   <Movie
+    //                     title={dataMovie?.title}
+    //                     imgURL={`${data.images_url}${dataMovie?.poster_path}`}
+    //                     imgAlt={`${dataMovie?.title} poster`}
+    //                     description={formatText(dataMovie?.overview)}
+    //                     vote_average={dataMovie?.vote_average}
+    //                     gender={getGenders(data?.genres, dataMovie?.genre_ids)}
+    //                     release_date={dataMovie?.release_date}
+    //                     key={key}
+    //                   />
+    //                 ))}
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   )}
+    // </AppContext.Provider>
   );
 };
 
