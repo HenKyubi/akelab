@@ -1,65 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const Akelab = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    calAkelabserial(Number(data?.formAkelab));
+    calAkelabserial(data?.formAkelab);
   };
 
-  const [akelabSequence, setAkelabSequence] = useState([]);
+  const [akelabSequence, setAkelabSequence] = useState("");
 
   const calAkelabserial = (number) => {
-    console.log("entro el numero: " + number);
+    let result = "";
 
-    //modo case vv
     for (let i = 1; i <= number; i++) {
-      console.log("akelabSequence vale: " + akelabSequence);
       if (i % 3 === 0 || i % 5 === 0) {
         if (i % 3 === 0 && i % 5 === 0) {
-          setAkelabSequence(...["AKELAB"]);
-          // console.log("AKELAB");
+          result = result + "AKELAB, ";
         } else {
           if (i % 3 === 0) {
-            setAkelabSequence(...["AKE"]);
-            // console.log("AKE");
+            result = result + "AKE, ";
           } else {
-            setAkelabSequence(...["LAB"]);
-            // console.log("LAB");
+            result = result + "LAB, ";
           }
         }
       } else {
-        setAkelabSequence(...[i]);
-        // console.log(i);
+        result = result + i + ", ";
       }
-      // if (i % 3 === 0 || i % 5 === 0) {
-      //   switch (i) {
-      //     case i % 3 === 0 && i % 5 === 0:
-      //       console.log("AKELAB");
-      //       break;
-      //     case i % 3 === 0:
-      //       console.log("AKE");
-      //       break;
-      //     case (i % 5 === 0):
-      //       console.log("LAB")
-      //       break;
-      //     default:
-      //       console.log(i);
-      //       break;
-      //   }
-      // } else {
-      //   console.log(i);
-      // }
     }
+    result = result.substring(0, result.length - 2);
+    setAkelabSequence(result);
   };
-  // useEffect(
-  //   (
-  //     console.log(
-
-  //     )
-  //   ),[]
-  // )
 
   return (
     <>
@@ -70,7 +41,10 @@ const Akelab = () => {
           type="number"
           {...register("formAkelab", {
             required: true,
-            min: 1,
+            min: {
+              value: 1,
+              message: "El valor minimo permitido es 1",
+            },
           })}
         />
         <button type="submit">Find Sequence</button>
