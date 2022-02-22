@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Loader from "./components/loader";
-// import Fibonacci from "./components/fibonacci";
+import Fibonacci from "./components/fibonacci";
 import api from "./api";
 import Movie from "./components/movie";
 import NavBar from "./components/navBar";
@@ -88,7 +88,8 @@ const App = () => {
   // }, []);
 
   return (
-    <Akelab />
+    // <Akelab />
+    <Fibonacci />
     // <AppContext.Provider
     //   value={{
     //     setSearch: search,
@@ -96,7 +97,6 @@ const App = () => {
     //     optionSelected: optionData,
     //   }}
     // >
-    //   {/* <Fibonacci /> */}
     //   {loading && data !== undefined ? (
     //     <Loader />
     //   ) : (

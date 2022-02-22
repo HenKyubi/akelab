@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 const Fibonacci = () => {
-  const { handleSubmit } = useForm();
-  const onSubmit = (num) => fibonacciResult(num);
-  const [secuenceFibonacci, setSecuenceFibonacci] = useState([]);
-  const fibonacciResult = (num) => {
-    if (num === 1) {
-      return [0, 1];
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (num) => calFibonacci(num?.formFibonacci);
+  const [secuenceFibonacci, setSecuenceFibonacci] = useState("");
+
+  const calFibonacci = (dato) => {
+    if (dato > 1) {
+      let limit = dato;
+      let fibo = [0, 1];
+      for (let i = 2; i <= limit; i++) {
+        fibo.push(fibo[i - 1] + fibo[i - 2]);
+      }
+      setSecuenceFibonacci(fibo.join());
     } else {
-      const sequence = fibonacciResult(num - 1);
-      sequence.push(sequence.length - 1 + sequence.length - 2);
-      setSecuenceFibonacci(sequence);
-      return sequence;
+      setSecuenceFibonacci(1);
     }
   };
 
@@ -20,9 +23,18 @@ const Fibonacci = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Fibonacci</h2>
         <h3>Secuencia fibonacci de:</h3>
-        <input type="number" min="1" />
+        <input
+          type="number"
+          {...register("formFibonacci", {
+            required: true,
+            min: {
+              value: 1,
+              message: "El valor minimo permitido es 1",
+            },
+          })}
+        />
         <button type="submit">Find Sequence</button>
-        {secuenceFibonacci !== [] && <span>{secuenceFibonacci}</span>}
+        {secuenceFibonacci !== "" && <span>{secuenceFibonacci}</span>}
       </form>
     </>
   );
