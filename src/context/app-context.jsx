@@ -1,9 +1,14 @@
 import { createContext } from "react";
 
 const defaultState = {
-  setSearch: () => {},
-  setSearchGender: () => {},
-  optionSelected: null,
+  data: {},
+  setData: () => {},
+  initialState: {},
+  // setData: () => {},
+
+  // setSearch: () => {},
+  // setSearchGender: () => {},
+  // optionSelected: null,
 };
 
 const AppContext = createContext(defaultState);
