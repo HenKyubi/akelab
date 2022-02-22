@@ -5,6 +5,7 @@ import AppContext from "../context/app-context";
 import api from "../api";
 import SearchBar from "./searchbar";
 import ListMovies from "./list-movies";
+import FilterOrderBy from "./filer-order-by";
 
 const Apps = () => {
   const [dataListMovies, setDataListMovies] = useState({});
@@ -37,7 +38,8 @@ const Apps = () => {
         <button className="btn btn-primary" onClick={() => getListMovies()}>
           soy un boton
         </button>
-        <SearchBar></SearchBar>
+        <SearchBar />
+        <FilterOrderBy />
       </div>
 
       <ListMovies data={dataListMovies} />
